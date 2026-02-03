@@ -1,6 +1,9 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Section from "../components/Section.astro";
+import Subsection from "../components/Subsection.astro";
+import Button from "../components/Button.astro";
+import Row from "../components/Row.astro";
 ---
 
 <BaseLayout>
@@ -13,11 +16,46 @@ import Section from "../components/Section.astro";
       eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
       voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
       clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
-      amet. Lorem ipsum <a>dolor</a> sit amet, consetetur sadipscing elitr, sed diam
+      amet. Lorem ipsum <a>ankor</a> sit amet, consetetur sadipscing elitr, sed diam
       nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-      voluptua. At vero eos <code>et accusam et justo</code> duo dolores et ea rebum.
-      Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
-      amet.
+      voluptua. At vero eos <code>inline code</code> duo dolores et ea rebum. Stet
+      clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
     </p>
+
+    <Subsection title="Subsection Component">
+      <p>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+        voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+      </p>
+    </Subsection>
+  </Section>
+
+  <Section
+    title="Button Components"
+    description="These are the available button components"
+  >
+    <Subsection title="Variants">
+      <Row>
+        <Button variant="primary">Primary</Button>
+        <Button variant="secondary">Secondary</Button>
+        <Button variant="outline">Outline</Button>
+        <Button variant="ghost">Ghost</Button>
+      </Row>
+    </Subsection>
+
+    <Subsection title="Sizes">
+      <Row>
+        <Button>Default</Button>
+        <Button size="sm">Small</Button>
+      </Row>
+    </Subsection>
+
+    <Subsection title="States">
+      <Row>
+        <Button>Normal</Button>
+        <Button disabled>Disabled</Button>
+      </Row>
+    </Subsection>
   </Section>
 </BaseLayout>
