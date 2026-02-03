@@ -3,6 +3,7 @@
  *
  * siteTitle       - Website title (shown in browser tab)
  * siteDescription - Meta description for SEO
+ * siteIcon        - Favicon path (shown in browser tab bar)
  * accentColor     - Primary accent color (any hex value)
  * themeMode       - "light" | "dark" | "dynamic" (system preference)
  * maxWidth        - "xl" (1280px) | "l" (1024px) | "m" (768px) | "s" (640px)
@@ -40,6 +41,7 @@
 // CONFIGURATION
 export const siteTitle = "Website Template";
 export const siteDescription = "Minimal Astro starter with config-based theming and reusable components";
+export const siteIcon = "/favicon.svg";
 export const accentColor = "#3B82F6";
 export const themeMode: ThemeMode = "dark";
 export const maxWidth: MaxWidth = "l";
@@ -63,6 +65,7 @@ export const maxWidthValues: Record<MaxWidth, string> = {
 export const config = {
   siteTitle,
   siteDescription,
+  siteIcon,
   accentColor,
   themeMode,
   maxWidth,

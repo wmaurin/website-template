@@ -2,6 +2,7 @@
 import {
   siteTitle,
   siteDescription,
+  siteIcon,
   accentColor,
   themeMode,
   fontFamily,
@@ -23,8 +24,7 @@ const maxWidthPx = maxWidthValues[maxWidth];
 <html lang="en" data-theme={themeMode === "dynamic" ? undefined : themeMode}>
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" href={siteIcon} />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
