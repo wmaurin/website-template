@@ -1,0 +1,32 @@
+---
+import { siteTitle, siteDescription, accentColor, themeMode, fontFamily } from "../config";
+import "../styles/globals.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = siteTitle, description = siteDescription } = Astro.props;
+---
+
+<html lang="en" data-theme={themeMode === "dynamic" ? undefined : themeMode}>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<style define:vars={{ accentColor, fontFamily }}>
+			:root {
+				--color-accent: var(--accentColor);
+				--font: var(--fontFamily);
+			}
+		</style>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
