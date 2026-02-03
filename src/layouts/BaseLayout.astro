@@ -9,6 +9,7 @@ import {
   maxWidthValues,
 } from "../config";
 import "../styles/globals.css";
+import Navbar from "../components/Navbar.astro";
 
 interface Props {
   title?: string;
@@ -37,6 +38,12 @@ const maxWidthPx = maxWidthValues[maxWidth];
     </style>
   </head>
   <body>
+    <header>
+      <Navbar>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </Navbar>
+    </header>
     <main>
       <slot />
     </main>
@@ -44,6 +51,7 @@ const maxWidthPx = maxWidthValues[maxWidth];
 </html>
 
 <style>
+  header,
   main {
     max-width: var(--max-width);
     margin: 0 auto;

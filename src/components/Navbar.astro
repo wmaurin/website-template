@@ -1,0 +1,93 @@
+---
+import type { NavbarAligned } from "../config";
+import { navbarAligned, navbarLogo } from "../config";
+
+interface Props {
+  aligned?: NavbarAligned;
+  logo?: string;
+}
+
+const { aligned = navbarAligned, logo = navbarLogo } = Astro.props;
+
+// Check if logo is an SVG path
+const isSvg = logo && /\.svg$/i.test(logo);
+
+// Logo is only shown when aligned is "right"
+const showLogo = aligned === "right" && logo;
+---
+
+<nav class:list={["navbar", aligned]}>
+  {
+    showLogo && (
+      <a href="/" class="logo">
+        {isSvg ? <img src={logo} alt="Logo" /> : <span>{logo}</span>}
+      </a>
+    )
+  }
+  <ul class="nav-links">
+    <slot />
+  </ul>
+</nav>
+
+<style>
+  .navbar {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .navbar.center {
+    justify-content: center;
+  }
+
+  .navbar.right {
+    justify-content: space-between;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: var(--color-text);
+  }
+
+  .logo:hover {
+    opacity: 0.8;
+  }
+
+  .logo img {
+    height: 2rem;
+    width: auto;
+  }
+
+  :global([data-theme="dark"]) .logo img {
+    filter: invert(1);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :global(:root:not([data-theme="light"])) .logo img {
+      filter: invert(1);
+    }
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-links :global(a) {
+    color: var(--color-text-secondary);
+    transition: color var(--transition-fast);
+  }
+
+  .nav-links :global(a:hover) {
+    color: var(--color-text);
+    opacity: 1;
+  }
+</style>
