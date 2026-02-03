@@ -1,5 +1,4 @@
 // CONFIGURATION
-
 export const siteTitle = "Website Template";
 export const siteDescription = "Website Description";
 export const accentColor = "#3B82F6";
@@ -20,7 +19,6 @@ export const fontFamily = "Georgia, serif";
 
 
 // TYPES & MAPPINGS
-
 export type ThemeMode = "light" | "dark" | "dynamic";
 export type MaxWidth = "xl" | "l" | "m" | "s";
 
