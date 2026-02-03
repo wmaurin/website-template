@@ -19,7 +19,7 @@
 /* Dark theme */
 [data-theme="dark"] {
   --color-bg: #0a0a0a;
-  --color-bg-secondary: #1e1e1e;;
+  --color-bg-secondary: #1e1e1e;
   --color-text: #fafafa;
   --color-text-secondary: #a3a3a3;
   --color-border: #262626;
