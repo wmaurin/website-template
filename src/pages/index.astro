@@ -9,6 +9,7 @@ import InputField from "../components/InputField.astro";
 import TextArea from "../components/TextArea.astro";
 import SelectField from "../components/SelectField.astro";
 import Form from "../components/Form.astro";
+import CodeBlock from "../components/CodeBlock.astro";
 
 // Demo images with varying aspect ratios
 const demoImages = [
@@ -82,6 +83,33 @@ const demoImages = [
     description="Masonry-style image gallery with lightbox"
   >
     <Gallery images={demoImages} columns={3} gap="md" />
+  </Section>
+
+  <Section
+    title="CodeBlock Component"
+    description="Syntax-highlighted code blocks with copy button"
+  >
+    <Subsection title="TypeScript">
+      <CodeBlock
+        lang="typescript"
+        code={`interface User {
+  id: number;
+  name: string;
+  email: string;
+}
+
+const greeting = "Hello, world!";
+console.log(greeting);`}
+      />
+    </Subsection>
+
+    <Subsection title="Bash">
+      <CodeBlock
+        lang="bash"
+        code={`npm install astro
+npm run dev`}
+      />
+    </Subsection>
   </Section>
 
   <Section title="Form Components" description="Form components for user input">
