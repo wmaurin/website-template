@@ -1,0 +1,96 @@
+---
+interface Props {
+  gap?: "sm" | "md" | "lg";
+  align?: "start" | "center" | "end" | "baseline" | "stretch";
+  justify?: "start" | "center" | "end" | "between" | "around";
+  wrap?: boolean;
+  class?: string;
+}
+
+const {
+  gap = "md",
+  align = "center",
+  justify = "start",
+  wrap = true,
+  class: className,
+} = Astro.props;
+
+const classes = [
+  "row",
+  `gap-${gap}`,
+  `align-${align}`,
+  `justify-${justify}`,
+  wrap && "wrap",
+  className,
+];
+---
+
+<div class:list={classes}>
+  <slot />
+</div>
+
+<style>
+  .row {
+    display: flex;
+  }
+
+  /* Gap */
+  .gap-sm {
+    gap: 0.5rem;
+  }
+
+  .gap-md {
+    gap: 0.75rem;
+  }
+
+  .gap-lg {
+    gap: 1.5rem;
+  }
+
+  /* Align (align-items) */
+  .align-start {
+    align-items: flex-start;
+  }
+
+  .align-center {
+    align-items: center;
+  }
+
+  .align-end {
+    align-items: flex-end;
+  }
+
+  .align-baseline {
+    align-items: baseline;
+  }
+
+  .align-stretch {
+    align-items: stretch;
+  }
+
+  /* Justify (justify-content) */
+  .justify-start {
+    justify-content: flex-start;
+  }
+
+  .justify-center {
+    justify-content: center;
+  }
+
+  .justify-end {
+    justify-content: flex-end;
+  }
+
+  .justify-between {
+    justify-content: space-between;
+  }
+
+  .justify-around {
+    justify-content: space-around;
+  }
+
+  /* Wrap */
+  .wrap {
+    flex-wrap: wrap;
+  }
+</style>
