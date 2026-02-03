@@ -5,6 +5,10 @@ import Subsection from "../components/Subsection.astro";
 import Button from "../components/Button.astro";
 import Row from "../components/Row.astro";
 import Gallery from "../components/Gallery.astro";
+import InputField from "../components/InputField.astro";
+import TextArea from "../components/TextArea.astro";
+import SelectField from "../components/SelectField.astro";
+import Form from "../components/Form.astro";
 
 // Demo images with varying aspect ratios
 const demoImages = [
@@ -78,5 +82,41 @@ const demoImages = [
     description="Masonry-style image gallery with lightbox"
   >
     <Gallery images={demoImages} columns={3} gap="md" />
+  </Section>
+
+  <Section title="Form Components" description="Form components for user input">
+    <Form>
+      <Row gap="lg" align="stretch">
+        <InputField label="Name" name="name" placeholder="Your name" required />
+        <InputField
+          label="Email"
+          name="email"
+          type="email"
+          placeholder="you@example.com"
+          required
+        />
+      </Row>
+      <SelectField
+        label="Subject"
+        name="subject"
+        placeholder="Select a topic"
+        options={[
+          { value: "general", label: "General Inquiry" },
+          { value: "support", label: "Support" },
+          { value: "feedback", label: "Feedback" },
+        ]}
+        required
+      />
+      <TextArea
+        label="Message"
+        name="message"
+        placeholder="Your message..."
+        required
+      />
+      <Row>
+        <Button type="submit" variant="primary">Send Message</Button>
+        <Button type="reset" variant="ghost">Reset</Button>
+      </Row>
+    </Form>
   </Section>
 </BaseLayout>

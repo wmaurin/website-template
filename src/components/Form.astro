@@ -1,0 +1,57 @@
+---
+interface Props {
+  maxWidth?: "sm" | "md" | "lg" | "full";
+  gap?: "sm" | "md" | "lg";
+  class?: string;
+}
+
+const {
+  maxWidth = "full",
+  gap = "md",
+  class: className,
+  ...rest
+} = Astro.props;
+
+const classes = ["form", `max-width-${maxWidth}`, `gap-${gap}`, className];
+---
+
+<form class:list={classes} {...rest}>
+  <slot />
+</form>
+
+<style>
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Max width */
+  .max-width-sm {
+    max-width: 320px;
+  }
+
+  .max-width-md {
+    max-width: 500px;
+  }
+
+  .max-width-lg {
+    max-width: 700px;
+  }
+
+  .max-width-full {
+    max-width: 100%;
+  }
+
+  /* Gap */
+  .gap-sm {
+    gap: 0.5rem;
+  }
+
+  .gap-md {
+    gap: 1rem;
+  }
+
+  .gap-lg {
+    gap: 1.5rem;
+  }
+</style>
