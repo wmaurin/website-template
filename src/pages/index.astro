@@ -4,6 +4,20 @@ import Section from "../components/Section.astro";
 import Subsection from "../components/Subsection.astro";
 import Button from "../components/Button.astro";
 import Row from "../components/Row.astro";
+import Gallery from "../components/Gallery.astro";
+
+// Demo images with varying aspect ratios
+const demoImages = [
+  { src: "https://picsum.photos/400/600", alt: "Portrait image" },
+  { src: "https://picsum.photos/400/300", alt: "Landscape image" },
+  { src: "https://picsum.photos/400/400", alt: "Square image" },
+  { src: "https://picsum.photos/400/500", alt: "Tall image" },
+  { src: "https://picsum.photos/400/350", alt: "Wide image" },
+  { src: "https://picsum.photos/400/450", alt: "Medium image" },
+  { src: "https://picsum.photos/400/550", alt: "Vertical image" },
+  { src: "https://picsum.photos/400/320", alt: "Horizontal image" },
+  { src: "https://picsum.photos/400/480", alt: "Another image" },
+];
 ---
 
 <BaseLayout>
@@ -57,5 +71,12 @@ import Row from "../components/Row.astro";
         <Button disabled>Disabled</Button>
       </Row>
     </Subsection>
+  </Section>
+
+  <Section
+    title="Gallery Component"
+    description="Masonry-style image gallery with lightbox"
+  >
+    <Gallery images={demoImages} columns={3} gap="md" />
   </Section>
 </BaseLayout>

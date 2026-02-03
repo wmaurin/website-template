@@ -1,0 +1,113 @@
+---
+interface Props {
+  images: { src: string; alt?: string }[];
+  columns?: 2 | 3 | 4;
+  gap?: "sm" | "md" | "lg";
+  rounded?: boolean;
+}
+
+const { images, columns = 3, gap = "md", rounded = true } = Astro.props;
+
+const classes = [
+  "gallery",
+  `columns-${columns}`,
+  `gap-${gap}`,
+  rounded && "rounded",
+];
+---
+
+<div class:list={classes}>
+  {
+    images.map((image) => (
+      <figure class="gallery-item">
+        <img src={image.src} alt={image.alt || ""} loading="lazy" />
+      </figure>
+    ))
+  }
+</div>
+
+<style>
+  .gallery {
+    column-fill: balance;
+  }
+
+  /* Columns */
+  .columns-2 {
+    columns: 2;
+  }
+
+  .columns-3 {
+    columns: 3;
+  }
+
+  .columns-4 {
+    columns: 4;
+  }
+
+  /* Responsive columns */
+  @media (max-width: 1024px) {
+    .columns-4 {
+      columns: 3;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .columns-3,
+    .columns-4 {
+      columns: 2;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .columns-2,
+    .columns-3,
+    .columns-4 {
+      columns: 1;
+    }
+  }
+
+  /* Gap */
+  .gap-sm {
+    gap: 0.5rem;
+  }
+
+  .gap-sm .gallery-item {
+    margin-bottom: 0.5rem;
+  }
+
+  .gap-md {
+    gap: 1rem;
+  }
+
+  .gap-md .gallery-item {
+    margin-bottom: 1rem;
+  }
+
+  .gap-lg {
+    gap: 1.5rem;
+  }
+
+  .gap-lg .gallery-item {
+    margin-bottom: 1.5rem;
+  }
+
+  /* Gallery item */
+  .gallery-item {
+    break-inside: avoid;
+    overflow: hidden;
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .rounded .gallery-item {
+    border-radius: var(--radius-md);
+  }
+
+  .rounded .gallery-item img {
+    border-radius: var(--radius-md);
+  }
+</style>
