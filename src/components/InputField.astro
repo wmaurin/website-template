@@ -84,7 +84,8 @@ const inputId = `input-${name}`;
   input:focus {
     outline: none;
     border-color: var(--color-accent);
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    box-shadow: 0 0 0 3px
+      color-mix(in srgb, var(--color-accent) 15%, transparent);
   }
 
   input:disabled {
