@@ -1,6 +1,6 @@
 // CONFIGURATION
 export const siteTitle = "Website Template";
-export const siteDescription = "Website Description";
+export const siteDescription = "Minimal Astro starter with config-based theming and reusable components";
 export const accentColor = "#3B82F6";
 export const themeMode: ThemeMode = "dark";
 export const maxWidth: MaxWidth = "xl";

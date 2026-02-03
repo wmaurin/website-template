@@ -1,6 +1,6 @@
 # Website Template
 
-RTC website template for fast building.
+Minimal Astro starter with config-based theming and reusable components.
 
 ## Commands
 
